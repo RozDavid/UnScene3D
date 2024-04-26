@@ -1,0 +1,6 @@
+build/
+cmake-build-debug/
+install/
+.idea/
+dist/
+*.egg-info/

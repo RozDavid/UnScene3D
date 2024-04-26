@@ -1,0 +1,128 @@
+net:
+    model: Res16UNet34CMultiRes
+    conv1_kernel_size: 3
+    weights:
+    weights_for_inner_model: ../model_weights/Res16UNet34C.pth
+    dilations: [1,1,1,1]
+    num_in_channels: 3
+
+    freeze_model: True
+
+    # Wrappers
+    wrapper_type:
+    wrapper_region_type: 1
+    wrapper_kernel_size: 3
+    wrapper_lr: 0.1
+
+    # Meanfield arguments
+    meanfield_iterations: 10
+    crf_spatial_sigma: 1
+    crf_chromatic_sigma: 12
+
+data:
+    dataset: ScanNet_2cmDataset
+    point_lim: -1
+    batch_size: 1
+    test_batch_size: 1
+    cache_data: False
+    num_workers: 8
+    ignore_label: -1
+    return_transformation: True
+    train_limit_numpoints: 10e8
+    align_scenes: True
+    segments_as_grids: True
+
+    # When we want oversegmentation
+    segmentation_threshold: 0.005
+    segments_min_vert_nums: [50, 100, 150, 200]
+
+    # IO Loading
+    scannet_path: /cluster/himring/drozenberszki/ScanNet/scannet_200_insseg
+    scannet_images_path: /cluster/himring/drozenberszki/Datasets/ScanNet/scans
+
+
+image_data:
+    use_images: True
+    model: DinoNet
+    feature_dim: 512
+    image_resolution: [480,640]
+    downsample_ratio: 0.4
+    model_checkpoint: ''
+    image_backbone: dino_vits8
+    dino_vit_stride: 4
+    dino_vit_layer: 10
+    dino_vit_feature: 'descriptors'  # 'attention', 'descriptors'
+
+freemask:
+    max_instance_num: 50
+    use_fps_sampling: False
+    fps_num_samples: 100
+    hard_mask_threshold: 0.35
+    nms_maskness_threshold: 0.6
+    instance_to_scene_max_ratio: 0.8
+    affinity_tau: 0.6
+    resolution_scale: 2
+    segment_dimension_order: 0
+    min_segment_size: 4
+    similarity_metric: 'cos'  # 'cos', 'l2'
+    aggregation_mode: 'mean'  # 'mean', 'max'
+    modality: 'geom'  # 'geom', 'color', 'both'
+    oracle_mode: false
+    oracle_data_root: /cluster/himring/drozenberszki/ScanNet/scannet_200_insseg
+    separation_mode: 'max'  # 'max', 'avg', 'all', 'largest'
+    max_extent_ratio: 0.8
+    max_surface_ratio: 0.25
+    whiten: False
+
+train:
+    # Training / test parameters
+    is_train: True
+    stat_freq: 40
+    train_phase: train
+    val_phase: val
+    resume: ''
+    eval_upsample: False
+    accumulate_grad_batches: 1
+
+# Data augmentation
+augmentation:
+    use_feat_aug: True
+    train_phase_augmentation: True
+    data_aug_color_trans_ratio: 0.10
+    data_aug_color_jitter_std: 0.05
+    normalize_color: True
+    data_aug_scale_min: 0.9
+    data_aug_scale_max: 1.1
+    data_aug_hue_max: 0.5
+    data_aug_saturation_max: 0.2
+    elastic_distortion: True
+
+# Test
+test:
+    test_phase: test
+    test_stat_freq: 100
+    evaluate_benchmark: False
+    visualize: True
+    visualize_freq: 1
+    log_frequency: 100
+    topk_metrics: 3
+
+# Misc
+misc:
+    is_cuda: True
+    load_path:
+    log_step: 50
+    log_level: INFO #['INFO', 'DEBUG', 'WARN']
+    num_gpus: 4
+    seed: 42
+    log_dir: outputs
+    wandb: False
+    wandb_id: ''
+    comment: 'debug'
+
+defaults:
+    - override hydra/launcher: submitit_slurm
+
+hydra:
+  run:
+    dir: ${misc.log_dir}/${data.dataset}/${net.model}/${net.model}-${misc.comment}
