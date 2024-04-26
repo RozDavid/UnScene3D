@@ -37,7 +37,7 @@ If you found this work helpful for your research, please consider citing our pap
 - [x] Pseudo Mask Generation
 - [x] Self-Training
 - [x] Evaluation
-- [ ] Upload Pretrained Models and Resources - will be available soon, you can ping me for direct access
+- [x] Upload pretrained models, datasets, visualizations and training resources
 
 
 ### Installation
