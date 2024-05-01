@@ -31,7 +31,7 @@ If you found this work helpful for your research, please consider citing our pap
 - [Data Preprocessing](#data-download-and-preprocessing) - we primarily use the ScanNet dataset, we have to preprocess them to get aligned point clouds and 2D images
 - [Pseudo Mask Generation](#pseudo-mask-generation) - we generate pseudo masks using self-supervised features and extract them for self-training
 - [Self-Training](#self-training) - we mostly follow the training procedure of Mask3D, but we use the pseudo masks, noise robust losses, self-training iterations, and a class-agnostic evaluation
-- [Available Resources](#available-resources) - we provide the pseudo datasets and pretrained models for evaluation and inference
+- [Available Resources](#available-resources) - we provide the pseudo datasets, pretrained models for evaluation and inference and loads of visualized scenes. 
 
 ### Roadmap
 - [x] Pseudo Mask Generation
