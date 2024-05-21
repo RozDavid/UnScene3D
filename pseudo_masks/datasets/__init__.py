@@ -1,4 +1,4 @@
-from lib.datasets import scannet, scannet_solo, scannet_free, arkit, s3dis
+from datasets import scannet, scannet_free, arkit, s3dis
 
 DATASETS = []
 
@@ -8,7 +8,6 @@ def add_datasets(module):
 
 add_datasets(scannet)
 add_datasets(arkit)
-add_datasets(scannet_solo)
 add_datasets(scannet_free)
 add_datasets(s3dis)
 

@@ -2,3 +2,4 @@
 .vscode/
 outputs/
 eval_outputs/
+model_weights/

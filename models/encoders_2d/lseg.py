@@ -1,11 +1,9 @@
 import os
 import argparse
 import torch
-from pytorch_lightning.core.lightning import LightningModule
-
-from ext.LSeg_fork.modules.models.lseg_net import LSegNet as LSegBaseNet
-
-from lib.utils.utils import load_state_with_same_shape
+from pytorch_lightning import LightningModule
+from third_party.LSeg_fork.modules.models.lseg_net import LSegNet as LSegBaseNet
+from utils.utils import load_state_with_same_shape
 
 class LSegNet(LightningModule):
 

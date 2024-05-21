@@ -9,6 +9,7 @@ from scipy.linalg import eigh
 import torch.nn.functional as F
 import pyviz3d.visualizer as vis
 
+# Add parent path to sys for importing shared modules
 import sys
 sys.path.append('..')
 
@@ -16,9 +17,9 @@ from datasets import load_dataset
 from datasets.dataset import initialize_data_loader
 from models import load_model
 from models.encoders_2d import load_2d_model
-from utils.cuda_utils.raycast_image import Project2DFeaturesCUDA
 from utils.utils import load_state_with_same_shape
 from utils.freemask_utils import *
+from utils.cuda_utils.raycast_image import Project2DFeaturesCUDA
 
 from MinkowskiEngine import SparseTensor
 
@@ -56,7 +57,7 @@ def initialize_models(config, device):
     num_in_channel = config.net.num_in_channels
     num_labels = data_loader.dataset.NUM_LABELS
     NetClass = load_model(config.net.model)
-    model_3d = NetClass(num_in_channel, num_labels, config).eval().to(device)
+    model_3d = NetClass(num_in_channel, num_labels, config.net).eval().to(device)
 
     # Load pretrained weights into model
     print('===> Loading weights for 3D backbone: ' + config.net.weights_for_inner_model)

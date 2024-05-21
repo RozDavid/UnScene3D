@@ -423,3 +423,87 @@ class STResTesseract16UNetBase(STRes16UNetBase):
 
 class STResTesseract16UNet18A(STRes16UNet18A, STResTesseract16UNetBase):
     pass
+
+
+class Res16UNet34CMultiRes(Res16UNet34C):
+
+    def forward(self, x):
+
+        # Input resolution stride, dilation 1
+        out = self.conv0p1s1(x)
+        out = self.bn0(out)
+        out_p1 = self.relu(out)
+
+        # Input resolution -> half
+        # stride 2, dilation 1
+        out = self.conv1p1s2(out_p1)
+        out = self.bn1(out)
+        out = self.relu(out)
+        out_b1p2 = self.block1(out)
+
+        # Half resolution -> quarter
+        # stride 2, dilation 1
+        out = self.conv2p2s2(out_b1p2)
+        out = self.bn2(out)
+        out = self.relu(out)
+        out_b2p4 = self.block2(out)
+
+        # 1/4 resolution -> 1/8
+        # stride 2, dilation 1
+        out = self.conv3p4s2(out_b2p4)
+        out = self.bn3(out)
+        out = self.relu(out)
+        out_b3p8 = self.block3(out)
+
+        # 1/8 resolution -> 1/16
+        # stride 2, dilation 1
+        out = self.conv4p8s2(out_b3p8)
+        out = self.bn4(out)
+        out = self.relu(out)
+        res_16 = self.block4(out)
+
+        # 1/16 resolution -> 1/8
+        # up_stride 2, dilation 1
+        out = self.convtr4p16s2(res_16)
+        out = self.bntr4(out)
+        out = self.relu(out)
+
+        # Concat with res 1/8
+        out = me.cat(out, out_b3p8)
+        res_8 = self.block5(out)
+
+        # 1/8 resolution -> 1/4
+        # up_stride 2, dilation 1
+        out = self.convtr5p8s2(res_8)
+        out = self.bntr5(out)
+        out = self.relu(out)
+
+        # Concat with res 1/4
+        out = me.cat(out, out_b2p4)
+        res_4 = self.block6(out)
+
+        # 1/4 resolution -> 1/2
+        # up_stride 2, dilation 1
+        out = self.convtr6p4s2(res_4)
+        out = self.bntr6(out)
+        out = self.relu(out)
+
+        # Concat with res 1/2
+        out = me.cat(out, out_b1p2)
+        res_2 = self.block7(out)
+
+        # 1/2 resolution -> orig
+        # up_stride 2, dilation 1
+        out = self.convtr7p2s2(res_2)
+        out = self.bntr7(out)
+        out = self.relu(out)
+
+        # Concat with orig
+        out = me.cat(out, out_p1)
+        out = self.block8(out)
+
+        return self.final(out), {'res_1': out, 'res_2': res_2, 'res_4': res_4, 'res_8': res_8, 'res_16': res_16}
+
+
+class Res16UNet34DMultiRes(Res16UNet34CMultiRes):
+    PLANES = (32, 64, 128, 256, 256, 256, 256, 512)

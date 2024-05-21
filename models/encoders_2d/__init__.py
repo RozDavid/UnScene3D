@@ -1,6 +1,5 @@
-import lib.models.encoders_2d.lseg as lseg
-# import lib.models.encoders_2d.densecl as denscl
-import lib.models.encoders_2d.dino as dino
+import models.encoders_2d.lseg as lseg
+import models.encoders_2d.dino as dino
 
 MODELS = []
 
@@ -8,7 +7,6 @@ def add_models(module):
   MODELS.extend([getattr(module, a) for a in dir(module) if 'Net' in a])
 
 add_models(lseg)
-# add_models(denscl)
 add_models(dino)
 
 def get_models():

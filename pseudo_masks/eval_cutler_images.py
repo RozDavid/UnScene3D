@@ -8,26 +8,17 @@ import glob
 
 from datasets import load_dataset
 from datasets.dataset import initialize_data_loader
-from models import load_model
-from models.encoders_2d import load_2d_model
-from utils.cuda_utils.raycast_image import Project2DFeaturesCUDA
-from utils.utils import load_state_with_same_shape
 from utils.freemask_utils import *
 from datasets.evaluation.evaluate_semantic_instance import Evaluator as InstanceEvaluator
-from constants.dataset_sets import VAL_SCENES, TRAIN_SCENES
+from constants.dataset_sets import VAL_SCENES
 
 import torch.multiprocessing
 torch.multiprocessing.set_sharing_strategy('file_system')
-
-import argparse
-import multiprocessing as mp
 
 import sys
 sys.path.append('./ext/CutLER/cutler')
 sys.path.append('./ext/CutLER/cutler/demo')
 from detectron2.config import get_cfg
-from detectron2.data.detection_utils import read_image
-from detectron2.utils.logger import setup_logger
 
 from predictor import VisualizationDemo
 

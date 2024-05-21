@@ -5,9 +5,9 @@ import numpy as np
 from collections import defaultdict
 from scipy import spatial
 from plyfile import PlyData
-from lib.utils.utils import read_txt, fast_hist, per_class_iu, Timer
-from lib.datasets.dataset import VoxelizationDataset, DatasetPhase, str2datasetphase_type, cache
-import lib.utils.transforms as t
+from utils.utils import read_txt, fast_hist, per_class_iu, Timer
+from datasets.dataset import VoxelizationDataset, DatasetPhase, str2datasetphase_type, cache
+import utils.transforms as t
 import MinkowskiEngine as ME
 
 import open3d as o3d

@@ -14,12 +14,9 @@ from utils.freemask_utils import *
 from datasets.evaluation.evaluate_semantic_instance import Evaluator as InstanceEvaluator
 
 import MinkowskiEngine as ME
-from MinkowskiEngine import SparseTensor
 import networkx as nx
 from scipy.spatial import KDTree
-import contextlib
 import joblib
-from joblib import Parallel, delayed
 import contextlib
 from tqdm import tqdm
 import pyviz3d.visualizer as vis

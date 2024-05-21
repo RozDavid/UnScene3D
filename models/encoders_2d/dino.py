@@ -1,8 +1,8 @@
 import torch
 import torch.nn.functional as F
-from pytorch_lightning.core.lightning import LightningModule
+from pytorch_lightning import LightningModule
 
-from ext.dino_vit.extractor import ViTExtractor
+from third_party.dino_vit.extractor import ViTExtractor
 
 class DinoNet(LightningModule):
 

@@ -31,7 +31,7 @@ import os, sys
 from copy import deepcopy
 import argparse
 import numpy as np
-from lib.datasets.evaluation.scannet_benchmark_utils import util_3d
+from datasets.evaluation.scannet_benchmark_utils import util_3d
 
 
 def setup_logging():

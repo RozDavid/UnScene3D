@@ -2,18 +2,11 @@ import hydra
 import logging
 from omegaconf import OmegaConf
 from tqdm import tqdm
-import open3d as o3d
-import numpy as np
-from sklearn.cluster import DBSCAN
 import wandb
-import hdbscan
 
 from datasets import load_dataset
 from datasets.dataset import initialize_data_loader
-from datasets.dataset import initialize_data_loader
 from models import load_model
-from utils.utils import load_state_with_same_shape
-from utils.freemask_utils import *
 from unscene3d_pseudo_main import segment_scene
 from models.encoders_2d import load_2d_model
 from utils.utils import load_state_with_same_shape

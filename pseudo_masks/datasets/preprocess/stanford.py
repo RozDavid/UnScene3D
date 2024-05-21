@@ -7,8 +7,8 @@ from tqdm import tqdm
 import sys
 sys.path.append('../../..')
 
-from lib.utils.pc_utils import save_point_cloud
-from lib.utils.utils import mkdir_p
+from utils.pc_utils import save_point_cloud
+from utils.utils import mkdir_p
 import argparse
 import open3d as o3d
 import time
@@ -18,13 +18,9 @@ from scipy.spatial import KDTree
 import random
 
 
-<<<<<<< HEAD
 STANFORD_3D_IN_PATH = '/cluster/himring/drozenberszki/Datasets/S3DIS/Stanford3dDataset_v1.2'
 STANFORD_3D_OUT_PATH = '/cluster/himring/drozenberszki/Datasets/S3DIS/processed_s5000'
-=======
-STANFORD_3D_IN_PATH = '/mnt/data/Datasets/S3DIS'
-STANFORD_3D_OUT_PATH = '/mnt/cluster/himring/drozenberszki/Datasets/S3DIS/processed_clean'
->>>>>>> 5fb40f7feaa338d23f8c46521012656c67f7d865
+
 STANFORD_3D_TO_SEGCLOUD_LABEL = {
     4: 0,
     8: 1,

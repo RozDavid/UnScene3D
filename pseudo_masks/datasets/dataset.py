@@ -15,9 +15,9 @@ from torch.utils.data import Dataset, DataLoader
 import MinkowskiEngine as ME
 
 from plyfile import PlyData
-import lib.utils.transforms as t
-from lib.datasets.dataloader import InfSampler
-from lib.datasets.voxelizer import Voxelizer
+import utils.transforms as t
+from datasets.dataloader import InfSampler
+from datasets.voxelizer import Voxelizer
 
 
 class DatasetPhase(Enum):
@@ -506,11 +506,7 @@ def initialize_data_loader(DatasetClass,
     """Initialize a data loader for a given dataset class."""
 
     limit_numpoints = config.data.train_limit_numpoints
-
-    if not config.SOLO3D.solo_instseg:
-        collate_fn = t.cfl_collate_fn_factory(limit_numpoints)
-    else:
-        collate_fn = t.cfl_instance_collate_fn_factory(limit_numpoints)
+    collate_fn = t.cfl_collate_fn_factory(limit_numpoints)
 
     prevoxel_transform_train = []
     if augment_data and config.augmentation.elastic_distortion:

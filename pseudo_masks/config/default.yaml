@@ -2,9 +2,10 @@ net:
     model: Res16UNet34CMultiRes
     conv1_kernel_size: 3
     weights:
-    weights_for_inner_model: ../model_weights/Res16UNet34C.pth
+    weights_for_inner_model: /home/drozenberszki/dev/tmp/UnScene3D/model_weights/Res16UNet34C.pth
     dilations: [1,1,1,1]
     num_in_channels: 3
+    bn_momentum: 0.02
 
     freeze_model: True
 

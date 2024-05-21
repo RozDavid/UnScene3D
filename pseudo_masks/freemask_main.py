@@ -4,10 +4,7 @@ import logging
 from omegaconf import OmegaConf
 from tqdm import tqdm
 from sklearn.decomposition import PCA
-import open3d as o3d
-import numpy as np
 from scipy.spatial import KDTree
-import matplotlib.pyplot as plt
 
 from datasets import load_dataset
 from datasets.dataset import initialize_data_loader

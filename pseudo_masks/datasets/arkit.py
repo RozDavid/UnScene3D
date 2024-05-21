@@ -1,4 +1,4 @@
-from lib.datasets.scannet import *
+from datasets.scannet import *
 
 class ARKit_Dataset(ScanNet_Dataset):
 

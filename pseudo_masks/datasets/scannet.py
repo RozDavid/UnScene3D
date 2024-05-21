@@ -11,12 +11,12 @@ import MinkowskiEngine as ME
 from PIL import Image
 import open3d as o3d
 
-from lib.datasets.dataset import VoxelizationDataset, DatasetPhase, str2datasetphase_type
-from lib.utils.pc_utils import read_plyfile, save_point_cloud, load_labels
-from lib.utils.utils import read_txt, fast_hist, per_class_iu, load_matrix_from_txt
+from datasets.dataset import VoxelizationDataset, DatasetPhase, str2datasetphase_type
+from utils.pc_utils import read_plyfile, save_point_cloud, load_labels
+from utils.utils import read_txt, fast_hist, per_class_iu, load_matrix_from_txt
 
-from lib.constants.scannet_constants import *
-from lib.constants.dataset_sets import *
+from constants.scannet_constants import *
+from constants.dataset_sets import *
 from scipy.spatial import KDTree
 
 import felzenszwalb_cpp
