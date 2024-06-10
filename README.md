@@ -135,7 +135,7 @@ Finally, to train the model with the pseudo masks over multiple stages of self-t
 
 We provide the [pretrained weights](https://kaldir.vc.in.tum.de/unscene3d/model_weights/CSC_train_Res16UNet34C_2cm.pth) for the CSC model, which is used for self-superivsed feature extraction. This was trained on teh training scenes of ScanNet, with default parameters. 
 
-#### Preprocessed Datasete
+#### Preprocessed Datasets
 We preprocessed a set of pseudo datasets in different variations, which can be used for self-training. We provide the following datasets: 
 
 | **Dataset Name**                                                                                      | **Description**                                                                                                 |
