@@ -72,7 +72,7 @@ cd ../..
 
 Additionally we also provide dockerized container for easier requirement management. For this we recommend to download the necessary datasets and symlink it to the ```data``` folder in this repo. 
 
-We expect to have Docker installed on your system (example [here](https://docs.docker.com/desktop/install/ubuntu/)), and change the ```--volume``` mappings in the ```.devcontainer/start.sh``` file. Here we expect ```UnScene3D/data/ScanNet``` be the raw ScanNet dataset, while ````as/UnScene3D/data``` should be the directory where Mask3D processed files live. Example preprocessed datasets can be downloaded from [here](#available-resources). 
+We expect to have Docker installed on your system (example [here](https://docs.docker.com/desktop/install/ubuntu/)), and change the ```--volume``` mappings in the ```.devcontainer/start.sh``` file. Here we expect ```UnScene3D/data/ScanNet``` be the raw ScanNet dataset, while ```/UnScene3D/data``` should be the directory where Mask3D processed files live. Example preprocessed datasets can be downloaded from [here](#available-resources). 
 
 Finally, one could initialize the system with 
 ```
