@@ -38,7 +38,7 @@ If you found this work helpful for your research, please consider citing our pap
 - [x] Self-Training
 - [x] Evaluation
 - [x] Upload pretrained models, datasets, visualizations and training resources
-
+- [x] Added docker container for easy setup 
 
 ### Installation
 
@@ -51,12 +51,13 @@ conda activate unscene3d
 ```
 
 
-Additionally, [MinkowskiEngine](https://github.com/NVIDIA/MinkowskiEngine) has to be installed manually with a specified CUDA version. 
+Additionally, [MinkowskiEngine](https://github.com/NVIDIA/MinkowskiEngine) and [Detectron2](https://detectron2.readthedocs.io/en/latest/tutorials/install.html) has to be installed manually with a specified CUDA version. 
 E.g. for CUDA 11.6 run
 
 ```sh
 export CUDA_HOME=/usr/local/cuda-11.6
 pip install -U git+https://github.com/NVIDIA/MinkowskiEngine -v --no-deps
+python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
 ```
 
 Finally, for building the custom cpp/cuda tools, run
@@ -65,6 +66,17 @@ cd utils/cpp_utils && python setup.py install
 cd ../cuda_utils && python setup.py install
 cd ../../third_party/pointnet2 && python setup.py install
 cd ../..
+```
+
+#### Running with Docker
+
+Additionally we also provide dockerized container for easier requirement management. For this we recommend to download the necessary datasets and symlink it to the ```data``` folder in this repo. 
+
+We expect to have Docker installed on your system (example [here](https://docs.docker.com/desktop/install/ubuntu/)), and change the ```--volume``` mappings in the ```.devcontainer/start.sh``` file. Here we expect ```UnScene3D/data/ScanNet``` be the raw ScanNet dataset, while ````as/UnScene3D/data``` should be the directory where Mask3D processed files live. Example preprocessed datasets can be downloaded from [here](#available-resources). 
+
+Finally, one could initialize the system with 
+```
+    . .devcontainer/start.sh
 ```
 
 ### Data download and preprocessing
@@ -116,6 +128,8 @@ Finally, to train the model with the pseudo masks over multiple stages of self-t
 ```sh
 . scripts/mask3d_DINO_CSC_self_train.sh
 ```
+
+
 
 ### Available Resources
 

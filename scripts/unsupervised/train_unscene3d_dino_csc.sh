@@ -6,10 +6,9 @@ export EXTRA_ARGS=$2
 DATA_DIR=data/processed/unscene3d_dino_csc
 VAL_DATA_DIR=data/processed/scannet_freemask_oracle
 
-# TRAIN
-python main_instance_segmentation.py \
+export train_args="\
   general.experiment_name=${EXP_NAME} \
-  general.project_name="unscene3d" \
+  general.project_name=unscene3d \
   general.eval_on_segments=true \
   general.train_on_segments=true \
   general.num_targets=3 \
@@ -21,4 +20,9 @@ python main_instance_segmentation.py \
   data.validation_dataset.data_dir=${VAL_DATA_DIR} \
   data.test_dataset.data_dir=${VAL_DATA_DIR} \
   general.resume=True \
-  ${EXTRA_ARGS}
+  ${EXTRA_ARGS}"
+
+echo "Training with args: ${train_args}"
+
+# TRAIN
+python main_instance_segmentation.py ${train_args}

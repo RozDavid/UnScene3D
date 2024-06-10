@@ -2,7 +2,7 @@
 
 export HYDRA_FULL_ERROR=1
 
-export BASE_PATH="/cluster/himring/drozenberszki/Datasets/Mask3D/data/processed"
+export BASE_PATH="data/processed"
 export OUTPUT_BASE="./eval_output"
 export STD_PARAMS="general.experiment_name=freemask_data_eval general.project_name=scannet general.eval_on_segments=true general.train_on_segments=true general.num_targets=3 data.test_batch_size=1 data.validation_mode=validation data/collation_functions=freemask_voxelize_collate data/datasets=freemask"
 

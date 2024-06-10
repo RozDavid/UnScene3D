@@ -11,16 +11,16 @@
 #eval_3='general.experiment_name=freemask_lseg_self_train_1 general.checkpoint=true'
 
 # Cycle comparisons CSC self trains
-# save_path=/cluster/himring/drozenberszki/Datasets/Mask3D/data/self_train/
-# eval_0='general.experiment_name=eval_unscene3d_CSC_self_train_1 general.checkpoint="/cluster/himring/drozenberszki/Datasets/Mask3D/data/self_train/unscene3d_CSC_droploss_0.01/epoch=399-val_mean_ap_50=0.180.ckpt"'
-# eval_1='general.experiment_name=eval_unscene3d_CSC_self_train_2 general.checkpoint="/cluster/himring/drozenberszki/Datasets/Mask3D/data/self_train/unscene3d_CSC_self_train_1/epoch=99-val_mean_ap_50=0.241.ckpt"'
-# eval_2='general.experiment_name=eval_unscene3d_CSC_self_train_3 general.checkpoint="/cluster/himring/drozenberszki/Datasets/Mask3D/data/self_train/unscene3d_CSC_self_train_2/epoch=79-val_mean_ap_50=0.258.ckpt"'
-# eval_3='general.experiment_name=eval_unscene3d_CSC_self_train_4 general.checkpoint="/cluster/himring/drozenberszki/Datasets/Mask3D/data/self_train/unscene3d_CSC_self_train_3/epoch=139-val_mean_ap_50=0.265.ckpt"'
+# save_path=data/self_train/
+# eval_0='general.experiment_name=eval_unscene3d_CSC_self_train_1 general.checkpoint="data/self_train/unscene3d_CSC_droploss_0.01/epoch=399-val_mean_ap_50=0.180.ckpt"'
+# eval_1='general.experiment_name=eval_unscene3d_CSC_self_train_2 general.checkpoint="data/self_train/unscene3d_CSC_self_train_1/epoch=99-val_mean_ap_50=0.241.ckpt"'
+# eval_2='general.experiment_name=eval_unscene3d_CSC_self_train_3 general.checkpoint="data/self_train/unscene3d_CSC_self_train_2/epoch=79-val_mean_ap_50=0.258.ckpt"'
+# eval_3='general.experiment_name=eval_unscene3d_CSC_self_train_4 general.checkpoint="data/self_train/unscene3d_CSC_self_train_3/epoch=139-val_mean_ap_50=0.265.ckpt"'
 
-# eval_4='general.experiment_name=eval_unscene3d_DINO_CSC_self_train_1 general.checkpoint="/cluster/himring/drozenberszki/Datasets/Mask3D/data/self_train/unscene3d_DINO_CSC_droploss_0.1/epoch=464-val_mean_ap_50=0.234.ckpt"'
-# eval_5='general.experiment_name=eval_unscene3d_DINO_CSC_self_train_2 general.checkpoint="/cluster/himring/drozenberszki/Datasets/Mask3D/data/self_train/unscene3d_CSC_DINO_self_train/epoch=114-val_mean_ap_50=0.298.ckpt"'
-# eval_6='general.experiment_name=eval_unscene3d_DINO_CSC_self_train_3 general.checkpoint="/cluster/himring/drozenberszki/Datasets/Mask3D/data/self_train/unscene3d_DINO_CSC_self_train_2/epoch=19-val_mean_ap_50=0.319.ckpt"'
-# eval_7='general.experiment_name=eval_unscene3d_DINO_CSC_self_train_4 general.checkpoint="/cluster/himring/drozenberszki/Datasets/Mask3D/data/self_train/unscene3d_DINO_CSC_self_train_3/epoch=104-val_mean_ap_50=0.321.ckpt"'
+# eval_4='general.experiment_name=eval_unscene3d_DINO_CSC_self_train_1 general.checkpoint="data/self_train/unscene3d_DINO_CSC_droploss_0.1/epoch=464-val_mean_ap_50=0.234.ckpt"'
+# eval_5='general.experiment_name=eval_unscene3d_DINO_CSC_self_train_2 general.checkpoint="data/self_train/unscene3d_CSC_DINO_self_train/epoch=114-val_mean_ap_50=0.298.ckpt"'
+# eval_6='general.experiment_name=eval_unscene3d_DINO_CSC_self_train_3 general.checkpoint="data/self_train/unscene3d_DINO_CSC_self_train_2/epoch=19-val_mean_ap_50=0.319.ckpt"'
+# eval_7='general.experiment_name=eval_unscene3d_DINO_CSC_self_train_4 general.checkpoint="data/self_train/unscene3d_DINO_CSC_self_train_3/epoch=104-val_mean_ap_50=0.321.ckpt"'
 
 # ArKit self train experiment
 eval_0="general.experiment_name=unscene3d_arkit_scannet_ckpt_self_train_2 general.checkpoint=/rhome/drozenberszki/projects/Mask3D-fork/saved/unscene3d_arkit_scannet_ckpt_self_train_2/last.ckpt"

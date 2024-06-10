@@ -1,5 +1,5 @@
 # @package _group_
-_target_: models.Mask3D
+_target_: models.mask3d.Mask3D
 
 # transformer parameters
 hidden_dim: 128
@@ -35,7 +35,7 @@ voxel_size: ${data.voxel_size}
 
 config:
   backbone:
-    _target_: models.Res16UNet34C
+    _target_: models.res16unet.Res16UNet34C
     config:
       dialations: [ 1, 1, 1, 1 ]
       conv1_kernel_size: 3
