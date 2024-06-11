@@ -4,7 +4,7 @@
 
 export BATCH_SIZE=$1
 export POSTFIX=$2
-export DATA_ROOT="/cluster/himring/drozenberszki/Datasets/ScanNet2D"
+export DATA_ROOT="data/Datasets/ScanNet2D"
 
 python -u train_lseg.py \
 --dataset ScanNet2DSegmentationDataset \

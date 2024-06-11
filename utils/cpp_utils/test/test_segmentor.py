@@ -78,9 +78,9 @@ def clean_segments(comps, min_vert_num=500):
 
 def main(min_vert_num=50):
     # Define paths
-    # mesh_path = '/mnt/cluster/himring/drozenberszki/Datasets/ScanNet/scans/scene0000_00/scene0000_00_vh_clean_2.ply'
-    mesh_path = '/mnt/cluster/himring/drozenberszki/Datasets/ScanNet/scans/scene0427_00/scene0427_00_vh_clean_2.ply'
-    # mesh_path = '/mnt/cluster/himring/drozenberszki/Datasets/ArKitScenes/meshes/low_res/416407.ply'
+    # mesh_path = 'data/Datasets/ScanNet/scans/scene0000_00/scene0000_00_vh_clean_2.ply'
+    mesh_path = 'data/Datasets/ScanNet/scans/scene0427_00/scene0427_00_vh_clean_2.ply'
+    # mesh_path = 'data/Datasets/ArKitScenes/meshes/low_res/416407.ply'
     # mesh_path = '/cluster/eriador/cyeshwanth/datasets/ARKitScenes/laser_scanner_point_clouds/416411/1mm/chunks_depth9/mesh/simplified_0.0156_mesh_aligned.ply'
 
     # Load meshes, simplify and calculate normals

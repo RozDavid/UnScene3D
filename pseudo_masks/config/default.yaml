@@ -2,7 +2,7 @@ net:
     model: Res16UNet34CMultiRes
     conv1_kernel_size: 3
     weights:
-    weights_for_inner_model: /home/drozenberszki/dev/tmp/UnScene3D/model_weights/Res16UNet34C.pth
+    weights_for_inner_model: model_weights/Res16UNet34C.pth
     dilations: [1,1,1,1]
     num_in_channels: 3
     bn_momentum: 0.02
@@ -38,8 +38,8 @@ data:
     segments_min_vert_nums: [50, 100, 150, 200]
 
     # IO Loading
-    scannet_path: /cluster/himring/drozenberszki/ScanNet/scannet_200_insseg
-    scannet_images_path: /cluster/himring/drozenberszki/Datasets/ScanNet/scans
+    scannet_path: data/ScanNet/scannet_200_insseg
+    scannet_images_path: data/ScanNet/scans
 
 
 image_data:
@@ -69,7 +69,7 @@ freemask:
     aggregation_mode: 'mean'  # 'mean', 'max'
     modality: 'geom'  # 'geom', 'color', 'both'
     oracle_mode: false
-    oracle_data_root: /cluster/himring/drozenberszki/ScanNet/scannet_200_insseg
+    oracle_data_root: data/ScanNet/scannet_200_insseg
     separation_mode: 'max'  # 'max', 'avg', 'all', 'largest'
     max_extent_ratio: 0.8
     max_surface_ratio: 0.25

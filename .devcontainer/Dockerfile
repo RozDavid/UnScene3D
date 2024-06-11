@@ -60,6 +60,9 @@ COPY utils /tmp/utils
 RUN cd /tmp/utils/cpp_utils && python setup.py install && \
     cd /tmp/utils/cuda_utils && python setup.py install 
 
+# Install pseudo mask related components
+RUN pip install clip hdbscan hydra-submitit-launcher
+
 # Ensures file permissions are consistent
 ARG USER_ID
 ARG GROUP_ID

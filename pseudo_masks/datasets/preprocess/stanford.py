@@ -18,8 +18,8 @@ from scipy.spatial import KDTree
 import random
 
 
-STANFORD_3D_IN_PATH = '/cluster/himring/drozenberszki/Datasets/S3DIS/Stanford3dDataset_v1.2'
-STANFORD_3D_OUT_PATH = '/cluster/himring/drozenberszki/Datasets/S3DIS/processed_s5000'
+STANFORD_3D_IN_PATH = 'data/Datasets/S3DIS/Stanford3dDataset_v1.2'
+STANFORD_3D_OUT_PATH = 'data/Datasets/S3DIS/processed_s5000'
 
 STANFORD_3D_TO_SEGCLOUD_LABEL = {
     4: 0,

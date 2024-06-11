@@ -24,7 +24,7 @@ class FreeMaskPreprocessing(BasePreprocessing):
             save_dir: str = "./data/processed/freemask",
             modes: tuple = ("train", "validation"),
             n_jobs: int = -1,
-            git_repo: str = "/cluster/himring/drozenberszki/Datasets/ScanNet/ScanNet",
+            git_repo: str = "data/Datasets/ScanNet/ScanNet",
             oracle: bool = False,
             freemask_dir: str = "/mnt/data/Datasets/ScanNetFreeMask"):
 

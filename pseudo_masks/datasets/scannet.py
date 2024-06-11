@@ -76,7 +76,7 @@ class ScanNet_Dataset(VoxelizationDataset):
             cache=cache)
 
         # Load dataframe with label map
-        labels_pd = pd.read_csv(os.path.join(data_root, 'feature_data', 'scannetv2-labels.combined.tsv'), sep='\t', header=0)
+        labels_pd = pd.read_csv(os.path.join('constants', 'scannetv2-labels.combined.tsv'), sep='\t', header=0)
         self.labels_pd = labels_pd
 
         # Create label map

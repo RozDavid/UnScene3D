@@ -20,11 +20,11 @@ class FreeMaskPreprocessing(BasePreprocessing):
 
     def __init__(
             self,
-            data_dir: str = "/cluster/himring/drozenberszki/Datasets/ArKitScenes",
+            data_dir: str = "data/Datasets/ArKitScenes",
             save_dir: str = "data/processed/unscene3d_arkit",
             modes: tuple = ("train", "validation"),
             n_jobs: int = 8,
-            freemask_dir: str = "/cluster/himring/drozenberszki/Datasets/ArKitScenes"):
+            freemask_dir: str = "data/Datasets/ArKitScenes"):
 
         super().__init__(data_dir, save_dir, modes, n_jobs)
 
