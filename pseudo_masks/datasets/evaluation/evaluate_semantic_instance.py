@@ -340,7 +340,7 @@ class Evaluator:
         line += "{:>15.3f}".format(all_25o) + sep
         logging.info(line)
         logging.info("")
-    
+
     @staticmethod
     def write_to_benchmark(output_path='benchmark_instance', scene_id=None, pred_inst={}):
         os.makedirs(output_path, exist_ok=True)
@@ -361,16 +361,10 @@ class Evaluator:
 
     def add_prediction(self, instance_info, id):
         self.pred_instances[id] = instance_info
-    
+
     def add_gt(self, instance_info, id):
         self.gt_instances[id] = instance_info
 
-    # see scannet repo for generating gt data for val in benchmark format
-    def add_gt_in_benchmark_format(self, scene_id):
-        gt_file_path = '/home/drozenberszki/Downloads/ScenNetBenchmark/scannet200_instance_3d/'
-        gt_file = os.path.join(gt_file_path, scene_id + '.txt')
-        gt_ids = util_3d.load_ids(gt_file)
-        self.add_gt(gt_ids, scene_id)
 
     def evaluate(self):
         print('evaluating', len(self.pred_instances), 'scans...')
@@ -408,7 +402,7 @@ def write_result_file(avgs, filename):
             ap = avgs["classes"][class_name]["ap"]
             ap50 = avgs["classes"][class_name]["ap50%"]
             ap25 = avgs["classes"][class_name]["ap25%"]
-            f.write(_SPLITTER.join([str(x) for x in [class_name, class_id, ap, ap50, ap25]]) + '\n')    
+            f.write(_SPLITTER.join([str(x) for x in [class_name, class_id, ap, ap50, ap25]]) + '\n')
 
 def config():
     parser = argparse.ArgumentParser()
@@ -423,8 +417,8 @@ if __name__ == '__main__':
     setup_logging()
 
     #-----------------scannet----------------------
-    CLASS_LABELS = ['cabinet', 'bed', 'chair', 'sofa', 'table', 'door', 'window', 
-                     'bookshelf', 'picture', 'counter', 'desk', 'curtain', 'refrigerator', 
+    CLASS_LABELS = ['cabinet', 'bed', 'chair', 'sofa', 'table', 'door', 'window',
+                     'bookshelf', 'picture', 'counter', 'desk', 'curtain', 'refrigerator',
                      'shower curtain', 'toilet', 'sink', 'bathtub', 'otherfurniture']
     VALID_CLASS_IDS = np.array([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 24, 28, 33, 34, 36, 39])
     evaluator = Evaluator(CLASS_LABELS=CLASS_LABELS, VALID_CLASS_IDS=VALID_CLASS_IDS)
@@ -446,7 +440,7 @@ if __name__ == '__main__':
             # read the mask
             pred_mask = util_3d.load_ids(pred_mask_file)
             instances[pred_mask_file]['pred_mask'] = pred_mask
-            
+
 
         evaluator.add_prediction(instances, scene_id)
 
