@@ -11,7 +11,7 @@ train_dataset:
   sweep: ${data.sweep}
   data_percent: 1.0
   ignore_label: ${data.ignore_label}
-  volume_augmentations_path: mix3d/conf/augmentation/volumentations_aug.yaml
+  volume_augmentations_path: mix3d/libs/UnScene3D/conf/augmentation/volumentations_aug.yaml
 
 validation_dataset:
   _target_: mix3d.datasets.outdoor_semseg.LidarDataset

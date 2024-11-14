@@ -2,7 +2,7 @@ set -e
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-source ${DIR}/build.sh
+#source ${DIR}/build.sh
 
 # Run the interactive script
 docker run --interactive --tty --rm \

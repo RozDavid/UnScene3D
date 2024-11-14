@@ -2,8 +2,8 @@
 train_dataset:
   _target_: mix3d.datasets.semseg.SemanticSegmentationDataset
   data_dir: data/processed/rio
-  image_augmentations_path: mix3d/conf/augmentation/albumentations_aug.yaml
-  volume_augmentations_path: mix3d/conf/augmentation/volumentations_aug.yaml
+  image_augmentations_path: mix3d/libs/UnScene3D/conf/augmentation/albumentations_aug.yaml
+  volume_augmentations_path: mix3d/libs/UnScene3D/conf/augmentation/volumentations_aug.yaml
   label_db_filepath: data/processed/scannet/label_database.yaml
   color_mean_std: data/processed/scannet/color_mean_std.yaml
   data_percent: 1.0

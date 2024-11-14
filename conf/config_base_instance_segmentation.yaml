@@ -4,7 +4,7 @@ general:
   train_mode: true
   task: "instance_segmentation"
   seed: null
-  checkpoint: null
+  checkpoint: /adl4cv/data/pretrained_models/unscene3d/unscene3d_DINO_CSC_self_train_3/best.ckpt # null
   backbone_checkpoint: null
   freeze_backbone: false # train only last layer
   linear_probing_backbone: false
@@ -19,9 +19,9 @@ general:
   export: false
   use_dbscan: false
   ignore_class_threshold: 100
-  project_name: scannet200
-  workspace: drozenberszki
-  experiment_name: freemask_experiments
+  project_name: unscene3d
+  workspace: nils_herrmann-technical-university-of-munich
+  experiment_name: test
   num_targets: 19
   add_instance: true
   dbscan_eps: 0.95
@@ -47,9 +47,9 @@ general:
 
   max_batch_size: 99999999
 
-  data_dir: ~/adl4cv/data
-  save_dir: ~/adl4cv/out/${general.experiment_name}
-  self_train_data_dir: ~/adl4cv/pretrained_models/unscene3d
+  data_dir: /adl4cv/data/processed/scannet_freemask
+  save_dir: /adl4cv/outputs/${general.experiment_name}
+  self_train_data_dir: /adl4cv/pretrained_models/unscene3d
 
   # time/commit/md5(config)_uuid
   # time/experiment_id/version_uuid
@@ -75,8 +75,8 @@ defaults:
 
 hydra:
   run:
-    dir: saved/hydra_logs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    dir: outputs/hydra_logs/${now:%Y-%m-%d}/${now:%H-%M-%S}
   sweep:
-    dir: saved/hydra_logs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    dir: outputs/hydra_logs/${now:%Y-%m-%d}/${now:%H-%M-%S}
     # dir: ${general.save_dir}
     subdir: ${hydra.job.num}_${hydra.job.id}
